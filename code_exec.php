@@ -7,11 +7,12 @@ $email=$_POST['email'];
 $pass=$_POST['pass'];
 $mob=$_POST['mob'];
 $loc=$_POST['loc'];
-$mysql_hostname = "localhost";
-$mysql_user = "root";
-$mysql_password = "";
-$mysql_database = "carpool";
-$prefix = "";
+$mysql_hostname = $IP;
+$mysql_user = ankitjain28;
+$mysql_password = "";   
+$mysql_database = c9;
+
+
 
 //check the validation of email address.
 if (!filter_var($email, FILTER_VALIDATE_EMAIL) === false) 
@@ -27,6 +28,30 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL) === false)
 		$bd = new mysqli($mysql_hostname, $mysql_user, $mysql_password, $mysql_database) or die("Could not connect database");
 
 		//check whether the email is already registered or not.
+		
+		$query="CREATE TABLE IF NOT EXISTS account (
+		mem_id int primary key auto_increment unique not null,
+		name varchar(255) not null,
+		email varchar(255) unique not null,
+		location varchar(255) not null,
+		mob varchar(255) not null
+		 ) ENGINE=INNODB;";
+	//run the query
+
+	if($bd->query($query));
+  		
+  		//query created
+
+		$query="CREATE TABLE IF NOT EXISTS login_info (
+			login_id int primary key auto_increment unique not null,
+			email varchar(255) unique not null,
+			pass varchar(255) not null,
+			same_id int not null,
+			FOREIGN KEY (same_id) REFERENCES account(mem_id)
+			 ) ENGINE=INNODB;";
+ 
+        if($bd->query($query));
+
 
 		$q2 = "Select * from account where email = '$email'";
 

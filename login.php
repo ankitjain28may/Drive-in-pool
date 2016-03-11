@@ -2,10 +2,8 @@
 session_start();
 if(isset($_SESSION['email']))
 {
-//header("Refresh:0");
-//unset($_SESSION['email']);
-echo "Already Login";
-die();
+header('Location:home.php');
+
 }
 ?>
 
@@ -16,7 +14,7 @@ die();
       <meta charset = "utf-8">
       <meta http-equiv = "X-UA-Compatible" content = "IE = edge">
       <meta name = "viewport" content = "width = device-width, initial-scale = 1">
-      <title>Bootstrap 101 Template</title>      
+      <title>Carpool | Login</title>      
    	  <!-- Latest compiled and minified CSS -->
 	 <link rel="stylesheet" href="dist/css/bootstrap.css">	
 	 <link rel="stylesheet" type="text/css" href="style.css">	      

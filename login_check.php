@@ -3,11 +3,10 @@ session_start();
 $email=$_POST['email'];
 $pass=$_POST['pass'];
 
-$mysql_hostname = "localhost";
-$mysql_user = "root";
-$mysql_password = "";
-$mysql_database = "carpool";
-$prefix = "";
+$mysql_hostname = $IP;
+$mysql_user = ankitjain28;
+$mysql_password = "";   
+$mysql_database = c9;
 
 $bd = new mysqli($mysql_hostname, $mysql_user, $mysql_password, $mysql_database) or die("Could not connect database");
 

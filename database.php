@@ -1,9 +1,9 @@
 <?php
 
-$mysql_hostname = "localhost";
-$mysql_user = "root";
-$mysql_password = "";
-$mysql_database = "carpool";
+$mysql_hostname = $IP;
+$mysql_user = ankitjain28;
+$mysql_password = "";   
+$mysql_database = c9;
 $prefix = "";
 $loc=$_POST['loc'];
 
@@ -21,7 +21,8 @@ if ($result->num_rows > 0) {
     	echo '<div class="container">
     	<div class="row">
     	<div class="col-sm-12 col-sm-offset-3" style="color:green">';
-        echo "<b>Name:</b> " . $row["name"]. "<br>Email: " . $row["email"]. "- Location " . $row["location"]."- mob".$row["mob"]."<br>";
+        echo "<b>Name:</b> " . $row["name"]. "<br>Email: " . $row["email"]. "<br>Location: " . $row["location"].", Mob: ".$row["mob"]."<br>"."Request him/her for the carpool";
+        echo "<br>";
         echo '</div>
         </div>
         </div>';
